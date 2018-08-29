@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Plat, PlatsService } from './service/plats.service';
 
 @Component({
   selector: 'app-root',
@@ -7,14 +6,11 @@ import { Plat, PlatsService } from './service/plats.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Restaurant > Plats';
-  // private plats: Plat[];
+  title = 'title';
 
-  constructor(private platsService: PlatsService) { }
+  constructor() { }
 
   ngOnInit() {
-    // this.platsService.getPlats().subscribe(plats => this.plats = plats);
-    this.platsService.onInit();
   }
 
 }

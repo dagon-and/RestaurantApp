@@ -1,8 +1,1 @@
-<div class="container-fluid">
-  <h3 class="text-center">{{title}}</h3>
-  <div class="row justify-content-between">
-    <div class="card col-3 m-2 p-2" *ngFor="let plat of platsService.plats | async">
-      <app-item [plat]='plat'></app-item>
-    </div>
-  </div>
-</div>
+<router-outlet></router-outlet>

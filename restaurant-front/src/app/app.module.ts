@@ -1,17 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+
+import { RoutingModule } from './routing/routing.module';
 
 import { AppComponent } from './app.component';
-import { ItemComponent } from './item/item.component';
-import { HttpClientModule } from '@angular/common/http';
+import { PlatsModule } from './plats/plats.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ItemComponent
+    AppComponent
   ],
   imports: [
-    BrowserModule, HttpClientModule
+    BrowserModule, PlatsModule, HttpClientModule, RoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

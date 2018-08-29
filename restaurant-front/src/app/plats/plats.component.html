@@ -1,0 +1,25 @@
+<div class="container-fluid">
+  <h3 class="text-center">{{title}}</h3>
+  <div class="row justify-content-center align-items-stretch">
+    <div class="col-3 m-1" *ngFor="let plat of platsService.plats | async">
+      <app-item [plat]='plat'></app-item>
+    </div>
+    <div class="col-3 m-1">
+      <form class="card m-2 p-0 h-100" style="min-height: 150px" [formGroup]="addPlat" novalidate (ngSubmit)="onSubmit()">
+        <div class="card-body p-2" [ngClass]="isAdd ? 'visible' : 'invisible'">
+          <input class="form-control card-title w-100" name="nom" placeholder="plat.nom" formControlName="nom">
+          <div class="card-text">
+            <input class="form-control text-right font-weight-bold w-100" name="prix" placeholder="plat.prix" formControlName="prix">
+            <p class="mb-0 font-italic">Description:</p>
+            <textarea class="form-control small w-100" name="description" placeholder="plat.description" rows="2" formControlName="description"></textarea>
+          </div>
+        </div>
+        <div class="card-footer p-1">
+          <a *ngIf='!isAdd' class="btn btn-sm btn-info w-100 text-white" role="button" (click)="isAdd = !isAdd">Ajouter</a>
+          <button *ngIf='isAdd' type="submit" class="btn btn-sm w-100" role="button" [ngClass]="isAdd && addPlat.valid ? 'btn-success' : 'btn-info'">{{isAdd
+            && addPlat.valid ? 'Submit' : 'Annuler'}}</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

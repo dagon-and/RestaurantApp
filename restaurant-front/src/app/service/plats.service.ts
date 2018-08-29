@@ -10,16 +10,16 @@ export class PlatsService {
 
   constructor(private http: HttpClient) { }
 
-  onInit(): void {
-    this.plats = this.http.get<Plat[]>("http://localhost:9090/Plats");
-  }
-
   getPlats(): Observable<Plat[]> {
-    return this.http.get<Plat[]>("http://localhost:9090/Plats");
+    return this.plats = this.http.get<Plat[]>("http://localhost:9090/Plats");
   }
 
-  getPlatByID(id: number): Observable<Plat[]> {
-    return this.http.get<Plat[]>("http://localhost:9090/Plats/" + id);
+  getPlatByID(id: string): Observable<Plat> {
+    return this.http.get<Plat>("http://localhost:9090/Plats/" + id);
+  }
+
+  postPlat(plat: Plat): Observable<Plat> {
+    return this.http.post<Plat>("http://localhost:9090/Plats", plat);
   }
 
 }

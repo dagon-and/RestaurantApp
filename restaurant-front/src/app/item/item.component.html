@@ -1,3 +1,15 @@
-<p>{{plat.nom}}</p>
-<p>{{plat.prix}}</p>
-<p>{{plat.description}}</p>
+<h3 *ngIf='id !== undefined' class="text-center">{{title}} {{plat?.id}}</h3>
+<div *ngIf="plat" class="card m-2 p-0 h-100" [ngClass]="{'col-3 ml-auto mr-auto': id !== undefined}">
+  <div class="card-body p-2">
+    <h6 class="card-title">{{plat.nom}}</h6>
+    <div class="card-text">
+      <p class="text-right font-weight-bold">{{plat.prix}} €</p>
+      <p class="mb-0 font-italic">Description:</p>
+      <p class="small">{{plat.description}}</p>
+    </div>
+  </div>
+  <div class="card-footer p-1">
+    <a *ngIf='id === undefined' class="btn btn-sm btn-info w-100" role="button" [routerLink]="['/plat', plat.id]">Detail</a>
+    <a *ngIf='id !== undefined' class="btn btn-sm btn-info w-100" role="button">Modifier</a>
+  </div>
+</div>
